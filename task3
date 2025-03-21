@@ -1,0 +1,23 @@
+import java.util.Arrays;
+
+public class Task3 {
+    public static int[] rotateArray(int[] array, int positions) {
+        int n = array.length;
+        positions = positions % n; // Handle cases where positions > n
+        int[] rotated = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            rotated[(i + positions) % n] = array[i];
+        }
+        return rotated;
+    }
+
+    public static void main(String[] args) {
+        int[] rotatedArr = rotateArray(new int[]{1, 2, 3, 4, 5}, 2);
+        System.out.println(Arrays.toString(rotatedArr));
+
+        int[] rotatedArr2 = rotateArray(new int[]{1, 2, 3}, 3);
+        System.out.println(Arrays.toString(rotatedArr2));
+    }
+
+}
